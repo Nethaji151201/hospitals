@@ -1,0 +1,63 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --color-primary: 54 201 95; /* Base Green #36c95f */
+    --color-secondary: 255 255 255; /* White Secondary #ffffff */
+    
+    --color-background: 244 247 250; /* Light grey backdrop #f4f7fa */
+    --color-sidebar: 255 255 255; /* Sidebar white #ffffff */
+    
+    --color-text: 51 65 85; /* Dark text #334155 */
+    --color-text-muted: 100 116 139; /* Muted text #64748b */
+  }
+
+  .dark {
+    --color-primary: 54 201 95; 
+    --color-secondary: 30 41 59; /* Dark sidebar/card #1e293b */
+    
+    --color-background: 15 23 42; /* Dark background #0f172a */
+    --color-sidebar: 30 41 59; /* Dark sidebar #1e293b */
+    
+    --color-text: 248 250 252; /* Light text #f8fafc */
+    --color-text-muted: 148 163 184; /* Muted #94a3b8 */
+  }
+  
+  body {
+    font-family: 'Poppins', sans-serif;
+    @apply bg-background text-text-main antialiased h-screen overflow-hidden transition-colors duration-500 ease-in-out;
+  }
+  
+  #root {
+    @apply h-full w-full;
+  }
+
+  /* Custom scrollbar for a premium feel */
+  ::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+  }
+  ::-webkit-scrollbar-track {
+    background: transparent;
+  }
+  ::-webkit-scrollbar-thumb {
+    @apply bg-gray-300 dark:bg-gray-700 rounded-full;
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    @apply bg-primary;
+  }
+}
+
+/* Fancy glassmorphism utility classes */
+@layer utilities {
+  .glass {
+    @apply bg-white/70 dark:bg-sidebar/80 backdrop-blur-md border border-white/20 dark:border-gray-700/30;
+  }
+  .glass-card {
+    @apply bg-white/90 dark:bg-sidebar/90 backdrop-blur-xl border border-gray-100 dark:border-gray-800 shadow-sm hover:shadow-md transition-all duration-300;
+  }
+}
